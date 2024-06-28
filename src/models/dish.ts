@@ -8,8 +8,10 @@ import { Difficulty } from './Difficulty';
 import { MealType } from './MealType';
 import { Seasonality } from './Seasonality';
 import { ServingSizes } from './ServingSizes';
+import { IngredientInDish } from './Ingredient-In-Dish';
+import { DishStep } from './Dish-Step';
 
-export type Dish = {
+export interface Dish {
   id: number;
   title: string;
   imageUrl: string;
@@ -29,6 +31,6 @@ export type Dish = {
   servingSize: ServingSizes;
   createdAt: string;
   deletedAt: string | null;
-
-
-};
+  ingredients: IngredientInDish[]
+  steps: DishStep[]
+}

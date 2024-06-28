@@ -9,6 +9,7 @@ import Home from './pages/Home/Home.page';
 import { UserDishesPage } from './pages/User-Dishes/User-Dishes.page';
 import { ProfilePage } from './pages/Profile/Profile.page';
 import CreateDishPage from './pages/Create-Dish/Create-Dish.page';
+import { DishPage } from './pages/Dish/Dish.page';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/user/:id/profile',
     element: <ProfilePage />,
+  },
+  {
+    path: '/dishes/:dishId',
+    element: <DishPage />,
   },
 ]);
 

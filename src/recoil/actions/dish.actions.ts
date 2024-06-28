@@ -1,9 +1,11 @@
 import { useSetRecoilState } from 'recoil';
 import { dishesAtom } from '../state/dishes.atom';
-import { getDishes } from '../../api/dishes.api';
+import { getDish, getDishes } from '../../api/dishes.api';
+import { dishAtom } from '../state/dish.atom';
 
 const useDishActions = () => {
   const setDishes = useSetRecoilState(dishesAtom);
+  const setDish = useSetRecoilState(dishAtom);
 
   async function getUserDishes(userId: number) {
     const dishes = await getUserDishes(userId);
@@ -22,25 +24,16 @@ const useDishActions = () => {
     setDishes(dishes);
   }
 
-  // async function logout() {
-  //   await logoutUser();
-  //   setUser(null);
-  // }
-
-  // async function getMe() {
-  //   const user = await getMe();
-  //   console.log(`get me: ${user}`);
-  //   setUser(user);
-  // }
-
-  // return logout;
+  async function fetchDish(id: number): Promise<void>{
+    const dish = await getDish(id);
+    setDish(dish);
+  }
 
   return {
     getDishesAndChangeState,
     getUserDishes,
-    fetchDishes
-    // logout,
-    // getMe,
+    fetchDishes,
+    fetchDish,
   }
 };
 

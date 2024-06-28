@@ -33,3 +33,9 @@ export async function createUserDishes(userId: number, dish: DishCreate): Promis
 
   return data;
 }
+
+export async function getDish(dishId: number): Promise<Dish> {
+  const { data } = await axios.get<Dish>(`/dishes/${dishId}`);
+
+  return data;
+}

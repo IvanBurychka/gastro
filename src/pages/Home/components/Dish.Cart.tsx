@@ -1,8 +1,14 @@
 import { Dish } from "../../../models/dish";
 import { Card, Row, Col, ListGroup, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 export default function DishCart({ dish }: { dish: Dish }) {
-  console.log(dish);
+  const navigate = useNavigate();
+
+  function navigateToSingeDish(id: number) {
+    navigate(`/dishes/${id}`);
+  }
+
   return (
     <Card>
       <Row>
@@ -48,7 +54,7 @@ export default function DishCart({ dish }: { dish: Dish }) {
           <Row >
             <Col className="d-flex justify-content-between">
               <Card.Text>Author: `{dish.author.firstName} {dish.author.lastName}`</Card.Text>
-              <Button className="mx-4">See more...</Button>
+              <Button className="mx-4" onClick={() => navigateToSingeDish(dish.id)}>See more...</Button>
             </Col>
           </Row>
         </Col>

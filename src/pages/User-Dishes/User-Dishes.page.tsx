@@ -13,7 +13,7 @@ export function UserDishesPage() {
   const navigate = useNavigate();
 
   function navigateToCreateDish() {
-    navigate(`/user/${authValue?.id}/dishes/create`)
+    navigate(`/user/${authValue?.id}/dishes/create`);
   }
 
   return (
